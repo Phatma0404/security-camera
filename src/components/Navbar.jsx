@@ -2,6 +2,7 @@ import Container from "./Container";
 import { useState } from "react";
 import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
 import { cn } from "../lib/utils";
+import { X } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -84,32 +85,45 @@ const Navbar = () => {
         </div>
         <hr className="border-1 text-[#ebebeb]" />
         {/* Mobile Menu */}
+
         {isOpen && (
-          <div className="md:hidden bg-white shadow-lg">
-            {/* <ul className="flex flex-col items-center space-y-4 py-4"> */}
-            <ul className="flex flex-col items-center space-y-4 py-4">
-              {links.map((item) => (
-                <li key={item.name}>
+          <div className="fixed inset-0 z-50 md:hidden ">
+            <div
+              className="absolute inset-0 bg-black/50"
+              onClick={() => setIsOpen(false)}
+            ></div>
+            <div className="absolute top-0 w-full bg-white shadow-lg p-6">
+              <button
+                className="cursor-pointer right-0 absolute"
+                onClick={() => setIsOpen(false)}
+              >
+                <X />
+              </button>
+
+              <ul className="flex flex-col items-center space-y-4 py-4">
+                {links.map((item) => (
+                  <li key={item.name}>
+                    <a
+                      href={item.href}
+                      className="hover:text-blue-500 transition"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-row items-center justify-center gap-40">
+                {socials.map((item) => (
                   <a
+                    key={item.name}
                     href={item.href}
-                    className="hover:text-blue-500 transition"
+                    target="_blank"
+                    className="text-xl hover:text-blue-500 transition"
                   >
-                    {item.name}
+                    {item.icon}
                   </a>
-                </li>
-              ))}
-            </ul>
-            <div className="flex flex-row items-center justify-center gap-40">
-              {socials.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  target="_blank"
-                  className="text-xl hover:text-blue-500 transition"
-                >
-                  {item.icon}
-                </a>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         )}

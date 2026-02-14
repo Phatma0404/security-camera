@@ -33,7 +33,7 @@ const Hero = () => {
 
           {/* right */}
 
-          <div className="flex-1 relative inline-block">
+          <div className="flex-1 relative inline-block justify-items-center">
             <img
               src={heroCamer}
               alt="Security Camera"
