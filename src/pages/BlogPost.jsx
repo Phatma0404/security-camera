@@ -5,7 +5,7 @@ const BlogPost = () => {
   const { blogId } = useParams();
   console.log("blogId from URL:", blogId, typeof blogId);
   const post = blogData.find((p) => p.id == Number(blogId));
-console.log(post)
+  console.log(post);
   if (!post) return <p>Post tapılmadı</p>;
 
   return (

@@ -11,6 +11,7 @@ import SecuritySolutions from "../components/SecuritySolutions";
 import Blog from "./Blog";
 import NewsletterForm from "../components/NewsletterForm";
 import Footer from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 
 const Home = () => {
   return (
