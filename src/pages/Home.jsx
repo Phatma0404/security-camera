@@ -15,11 +15,7 @@ import ScrollToTop from "../components/ScrollToTop";
 
 const Home = () => {
   return (
-    // <Container>
     <div>
-      {/* Navbar */}
-      {/* <Navbar /> */}
-
       <Hero />
       <About />
       <Services />
@@ -29,9 +25,7 @@ const Home = () => {
       <SecuritySolutions />
       <Blog />
       <NewsletterForm />
-      {/* <Footer /> */}
     </div>
-    // {/* </Container> */}
   );
 };
 
