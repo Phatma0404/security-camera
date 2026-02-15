@@ -17,7 +17,7 @@ const Home = () => {
     // <Container>
     <div>
       {/* Navbar */}
-      <Navbar />
+      {/* <Navbar /> */}
 
       <Hero />
       <About />
@@ -28,7 +28,7 @@ const Home = () => {
       <SecuritySolutions />
       <Blog />
       <NewsletterForm />
-      <Footer />
+      {/* <Footer /> */}
     </div>
     // {/* </Container> */}
   );

@@ -1,28 +1,11 @@
 import React from "react";
 import Container from "../components/Container";
 import { Folder, MoveRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { blogData } from "../data/blogData";
 
-const Blog = () => {
-  const blog = [
-    {
-      image:
-        "https://i.pinimg.com/736x/52/fa/2b/52fa2bd926af9d915d87ec2f1cd0ebc7.jpg",
-      title: "Security solutions",
-      desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam cum corrupti doloribus voluptas! ",
-    },
-    {
-      image:
-        "https://i.pinimg.com/736x/0a/f5/22/0af522210637a7d5e3f9a72ab3df2790.jpg",
-      title: "Monitor the workplace",
-      desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam cum corrupti doloribus voluptas! ",
-    },
-    {
-      image:
-        "https://i.pinimg.com/1200x/28/15/3c/28153c7b5f7327cfe43997202d41ae53.jpg",
-      title: "Why choose secures",
-      desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam cum corrupti doloribus voluptas! ",
-    },
-  ];
+const Blog = ({ blog }) => {
+
   return (
     <section className="pb-12">
       <Container>
@@ -36,9 +19,13 @@ const Blog = () => {
             culpa animi modi dolore.
           </p>
         </div>
-        <div className="flex flex-col sm:flex-row gap-6">
-          {blog.map((item, index) => (
-            <div key={index} className="">
+        <div className="flex flex-col sm:flex-row gap-9">
+          {blogData.map((item, index) => (
+            <Link
+              key={index}
+              to={`/blog/${item.id}`}
+              className="card-content"
+            >
               <div className="w-[370px] h-[200px]">
                 <img
                   src={item.image}
@@ -58,7 +45,7 @@ const Blog = () => {
                 Learn More
                 <MoveRight className="pt-1" size={20} color="#002b3d" />
               </button>
-            </div>
+            </Link>
           ))}
         </div>
       </Container>

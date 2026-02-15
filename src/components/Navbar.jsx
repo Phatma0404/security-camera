@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
 import { cn } from "../lib/utils";
 import { X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +12,7 @@ const Navbar = () => {
     { name: "Home", href: "#hero", type: "link" },
     { name: "About Us", href: "#aboutus", type: "link" },
     { name: "Services", href: "#services", type: "link" },
-    { name: "Page", href: "#page", type: "link" },
+    { name: "Blog", href: "#blog", type: "link" },
     { name: "Contact Us", href: "#contactus", type: "link" },
     {
       name: "Facebook",
@@ -39,10 +40,12 @@ const Navbar = () => {
   return (
     <nav className="w-full bg-white shadow-md">
       <Container>
-        <div className="max-w-6xl mx-auto ">
+        <div className="max-w-6xl mx-auto">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <div className="text-xl font-bold">ServiceSecurity</div>
+            <Link to="/" className="text-xl font-bold">
+              ServiceSecurity
+            </Link>
 
             {/* Desktop Menu */}
             <ul className="hidden md:flex space-x-8">
