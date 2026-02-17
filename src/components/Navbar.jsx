@@ -9,11 +9,11 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: "Home", href: "#hero", type: "link" },
-    { name: "About Us", href: "#aboutus", type: "link" },
+    { name: "Home", href: "/", type: "link" },
+    { name: "About Us", href: "#aboutUs", type: "link" },
     { name: "Services", href: "#services", type: "link" },
     { name: "Blog", href: "#blog", type: "link" },
-    { name: "Contact Us", href: "#contactus", type: "link" },
+    { name: "Contact Us", href: "/contactUs", type: "link", isRoute: true },
     {
       name: "Facebook",
       href: "https://facebook.com",
@@ -49,20 +49,44 @@ const Navbar = () => {
 
             {/* Desktop Menu */}
             <ul className="hidden md:flex space-x-8">
-              {links.map((item) => (
-                <li key={item.name}>
-                  <a
-                    href={item.href}
-                    className={cn(
-                      "a-tag",
-                      "transition text-[#003148] font-semibold",
-                      "hover:text-[#687892]",
-                    )}
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
+              {links.map(
+                (item) =>
+                  item.isRoute ? (
+                    <Link
+                      to={`/contactUs`}
+                      className={cn(
+                        "tag_link",
+                        "transition text-[#003148] font-semibold",
+                        "hover:text-[#687892]",
+                      )}
+                    >
+                      {item.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={item.href}
+                      className={cn(
+                        "tag_link",
+                        "transition text-[#003148] font-semibold",
+                        "hover:text-[#687892]",
+                      )}
+                    >
+                      {item.name}
+                    </a>
+                  ),
+                // <li key={item.name}>
+                //   <a
+                //     href={item.href}
+                //     className={cn(
+                //       "a-tag",
+                //       "transition text-[#003148] font-semibold",
+                //       "hover:text-[#687892]",
+                //     )}
+                //   >
+                //     {item.name}
+                //   </a>
+                // </li>
+              )}
               <div className="hidden md:flex items-center gap-4 pl-12">
                 {socials.map((item) => (
                   <a

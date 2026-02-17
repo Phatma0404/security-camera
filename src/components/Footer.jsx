@@ -17,22 +17,25 @@ const Footer = () => {
                 eius luctus, nec ullamcorper mattis, pulvinar dapibus leo.
               </p>
               <div className="flex gap-3">
-                <div className="bg-[#003f56] p-2 rounded-md cursor-pointer">
+                <a
+                  className="bg-[#003f56] p-2 rounded-md cursor-pointer"
+                  href="https://www.facebook.com/" target="_blank"
+                >
                   <Facebook size={18} />
-                </div>
-                <div className="bg-[#003f56] p-2 rounded-md cursor-pointer">
+                </a>
+                <a className="bg-[#003f56] p-2 rounded-md cursor-pointer" href="https://twitter.com/" target="_blank">
                   <Twitter size={18} />
-                </div>
-                <div className="bg-[#003f56] p-2 rounded-md cursor-pointer">
+                </a>
+                <a className="bg-[#003f56] p-2 rounded-md cursor-pointer" href="https://www.youtube.com/" >
                   <Youtube size={18} />
-                </div>
+                </a>
               </div>
             </div>
 
             {/* NAVIGATION */}
             <div className="md:ml-4 sm:ml-0">
               <h4 className="font-semibold mb-4">Navigation</h4>
-              <ul className="space-y-2 text-sm">
+              <ul className="space-y-2 text-sm cursor-pointer">
                 <li>Home</li>
                 <li>Pages</li>
                 <li>About Us</li>
@@ -44,7 +47,7 @@ const Footer = () => {
             {/* QUICK LINK */}
             <div>
               <h4 className="font-semibold mb-4">Quick Link</h4>
-              <ul className="space-y-2 text-sm">
+              <ul className="space-y-2 text-sm cursor-pointer">
                 <li>Contact Us</li>
                 <li>FAQs</li>
                 <li>Blog</li>

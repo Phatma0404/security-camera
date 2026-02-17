@@ -10,12 +10,16 @@ html.dark {
   color: #fff;
 } */
 
-.a-tag {
+html {
+  scroll-behavior: smooth;
+}
+
+.tag_link {
   position: relative;
   padding-bottom: 4px;
 }
 
-.a-tag::after {
+.tag_link::after {
   content: " ";
   position: absolute;
   bottom: 0px;
@@ -25,8 +29,8 @@ html.dark {
   transition: width 0.4s linear;
 }
 
-.a-tag:hover::after,
-.a-tag:focus::after {
+.tag_link:hover::after,
+.tag_link:focus::after {
   background-color: #687892;
   width: 100%;
 }
@@ -69,4 +73,11 @@ html.dark {
   /* scale: 1.05; */
   transform: scale(1.05);
   transition: transform 0.3s ease;
+}
+
+.bg {
+  background: linear-gradient(
+    rgba(104, 120, 146, 0.7),
+    rgba(104, 120, 146, 0.7)
+  );
 }

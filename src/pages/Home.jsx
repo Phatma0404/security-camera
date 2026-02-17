@@ -12,12 +12,13 @@ import Blog from "./Blog";
 import NewsletterForm from "../components/NewsletterForm";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
+import AboutHero from "../components/AboutHero";
 
 const Home = () => {
   return (
-    <div>
+    <div id="/">
       <Hero />
-      <About />
+      <AboutHero />
       <Services />
       <ContactCTA />
       <WorkingProcess />
