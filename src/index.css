@@ -81,3 +81,19 @@ html {
     rgba(104, 120, 146, 0.7)
   );
 }
+.container {
+  overflow: hidden;
+}
+
+.logo-partners {
+  animation: logoPartners 20s linear infinite;
+}
+
+@keyframes logoPartners {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

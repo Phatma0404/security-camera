@@ -6,7 +6,7 @@ const Contact = () => {
     <section className="mb-3">
       {" "}
       <div className="bg-[#acbfdf] text-white p-6 rounded-lg">
-        <h1 className="text-[56px] text-black font-bold leading-[3] tracking-wider text-center">
+        <h1 className="text-[56px] text-black font-extrabold leading-[3] tracking-wider text-center">
           Contact Us
         </h1>
         <p className="text-center max-w-[600px] place-self-center mb-6">
@@ -17,7 +17,7 @@ const Contact = () => {
       </div>
       <Container>
         {/* second */}
-        <div className="flex justify-between mt-6 mt-20">
+        <div className="flex flex-col md:flex-row lg:flex- justify-between mt-6 mt-20">
           <div className="flex-[2]">
             <form className="max-w-[600px]">
               <div className="flex gap-4">
@@ -27,7 +27,7 @@ const Contact = () => {
                   name="email"
                   placeholder="Email"
                   aria-label="Email"
-                  className="w-1/2 bg-[#acbfdf] mb-8 p-2 rounded-full text-black"
+                  className="w-1/2 bg-[#cfe1e5] mb-8 p-2 px-4 rounded-full text-black"
                 />
                 <input
                   type="text"
@@ -35,7 +35,7 @@ const Contact = () => {
                   name="phone"
                   placeholder="Phone"
                   aria-label="Phone"
-                  className="w-1/2 bg-[#acbfdf] mb-8 p-2 rounded-full text-black"
+                  className="w-1/2 bg-[#cfe1e5] mb-8 p-2 px-4 rounded-full text-black"
                 />
               </div>
               <input
@@ -44,18 +44,20 @@ const Contact = () => {
                 name="name"
                 placeholder="Name"
                 aria-label="Name"
-                className="w-full bg-[#acbfdf] mb-8 p-2 rounded-full text-black"
+                className="w-full bg-[#cfe1e5] mb-8 p-2 px-4 rounded-full text-black"
               />
               <textarea
                 name="message"
                 id="message"
                 placeholder="Message"
-                className="w-full bg-[#acbfdf] mb-8 p-2 rounded-xl text-black"
+                className="w-full bg-[#cfe1e5] mb-8 p-2 px-4 rounded-xl text-black"
+                rows="5"
+                resize-none
               ></textarea>
               <input
                 type="button"
                 value="Submit"
-                className="px-10 py-2 rounded-full bg-[#acbfdf] text-white"
+                className="px-10 py-2 rounded-full bg-[#acbfdf] text-white cursor-pointer hover:bg-[#9ab8ba]"
               />
             </form>
           </div>
@@ -81,12 +83,12 @@ const Contact = () => {
                   type="email"
                   placeholder="Email"
                   aria-label="Email"
-                  className="bg-[#fff] mb-4 w-full p-2 rounded-full text-black"
+                  className="bg-[#fff] mb-4 w-full py-3 px-4 rounded-full text-black"
                 />
                 <input
                   type="button"
                   value="Submit Button"
-                  className="w-full bg-[#000] p-2 rounded-full"
+                  className="w-full bg-[#000] p-3 rounded-full cursor-pointer text-white"
                 />
               </form>
             </div>
@@ -94,7 +96,7 @@ const Contact = () => {
         </div>
 
         {/* third */}
-        <div className="flex gap-15 mt-20 mb-12">
+        <div className="flex md:flex-3 lg:flex-row place-self-center flex-col gap-15 mt-20 mb-12">
           {/* phone */}
           <div className="bg-[#9ab8ba] max-w-[380px] p-8 rounded-lg text-white">
             <div className="flex items-center gap-4 mb-4">
