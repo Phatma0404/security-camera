@@ -28,61 +28,76 @@ const AboutHero = () => {
   ];
   
   return (
-    <section id="aboutUs">
+    <section id="aboutUs" className="py-16 sm:py-24 scroll-mt-16">
       <Container>
-        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3">
-          {/* first card */}
-          <div className="...">
-            <img src={Camera1} alt="" className="rounded-tl-[18px]" />
-            <img src={Camera2} alt="" className="rounded-bl-[18px]" />
+        {/* Header */}
+        <div className="text-center mb-12 sm:mb-16">
+          <span className="text-[#687892] font-semibold tracking-wider uppercase text-3xl">About Us</span>
+          <h1 className="text-[#002b3d] text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-4 leading-tight">
+            Trusted Security Partner <br className="hidden sm:block" /> Since 2001
+          </h1>
+          <p className="text-[#7a7777] max-w-[600px] mx-auto">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero,
+            eum dolor consectetur velit laborum blanditiis ducimus.
+          </p>
+        </div>
+
+        {/* Main content — image + text */}
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
+          {/* Images */}
+          <div className="relative w-full lg:w-1/2">
+            <img
+              src={Camera1}
+              alt=""
+              className="w-full h-[280px] sm:h-[360px] object-cover rounded-2xl"
+            />
+            <img
+              src={Camera2}
+              alt=""
+              className="hidden sm:block w-[55%] h-[200px] object-cover rounded-2xl border-4 border-white shadow-xl absolute -bottom-10 -right-4 lg:-right-8"
+            />
+            {/* Experience badge */}
+            <div className="hidden sm:flex bg-[#002b3d] text-white rounded-xl px-5 py-4 absolute -bottom-6 left-4 shadow-lg flex-col items-center">
+              <span className="text-3xl font-bold">23+</span>
+              <span className="text-xs tracking-wide">Years</span>
+            </div>
           </div>
 
-          {/* second card */}
-          <div className="bg-[#687892] text-white px-8 pt-12 rounded-2xl transition-all duration-300">
-            <h1 className="text-[50px] font-bold pb-3">About Us</h1>
-            <p>
+          {/* Text content */}
+          <div className="w-full lg:w-1/2 mt-8 sm:mt-14 lg:mt-0">
+            <p className="text-[#7a7777] mb-6">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero,
               eum dolor consectetur velit laborum blanditiis ducimus, aliquam
               corrupti fugiat repellendus possimus ipsa vitae at, itaque nemo!
               Excepturi officiis quisquam recusandae soluta necessitatibus omnis
               inventore quod, doloremque, reprehenderit dolor quibusdam
-              voluptatibus! Assumenda cupiditate nihil id, nisi quia facilis?
-              Neque suscipit officiis assumenda obcaecati ullam maiores beatae
-              quaerat modi. Fuga, vitae nisi.
+              voluptatibus!
             </p>
-            <p className="py-6">
+            <p className="text-[#7a7777] mb-8">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
               corrupti quas praesentium voluptates! Obcaecati beatae sapiente a,
               non.
             </p>
             <LearnMore />
           </div>
+        </div>
 
-          {/* third card */}
-          <div className="bg-white py-12 px-14">
-            <h2 className="text-[#002b3d] font-bold text-2xl pb-4">
-              Why Choose Us
-            </h2>
-
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laudantium cupiditate alias, odit quaerat enim laboriosam.
-            </p>
-
-            {aboutUs.map((item, index) => (
-              <div key={index} className="flex gap-4 mt-7">
-                <div className="bg-[#002b3d] w-[48px] h-[28px] sm:w-[61px] sm:h-[30px] text-white flex items-center justify-center rounded-lg">
-                  {item.icon}
-                </div>
-                <div>
-                  <h4 className="text-[#002b3d] font-bold text-xl mb-2">
-                    {item.title}
-                  </h4>
-                  <p className="text-[#7a7777]">{item.desc}</p>
-                </div>
+        {/* Why Choose Us — feature cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-20 sm:mt-24">
+          {aboutUs.map((item, index) => (
+            <div
+              key={index}
+              className="bg-white border border-gray-100 rounded-xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 text-center"
+            >
+              <div className="bg-[#002b3d] w-14 h-14 text-white flex items-center justify-center rounded-full mx-auto mb-4">
+                {item.icon}
               </div>
-            ))}
-          </div>
+              <h4 className="text-[#002b3d] font-bold text-lg sm:text-xl mb-2">
+                {item.title}
+              </h4>
+              <p className="text-[#7a7777] text-sm sm:text-base">{item.desc}</p>
+            </div>
+          ))}
         </div>
 
         <OurPartners />

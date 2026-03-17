@@ -1,67 +1,71 @@
-import { Bell, Camera, MoveRight, Zap } from "lucide-react";
+import { Bell, Camera, Zap, ArrowRight } from "lucide-react";
 import Container from "../components/Container";
-import LearnMore from "../components/LearnMore";
+
+const services = [
+  {
+    icon: <Camera size={28} />,
+    title: "Security Camera",
+    desc: "We bring the right people together to challenge established thinking and drive transform in 2020",
+    color: "bg-[#002b3d]",
+  },
+  {
+    icon: <Bell size={28} />,
+    title: "Fire Detection",
+    desc: "We bring the right people together to challenge established thinking and drive transform in 2020",
+    color: "bg-[#687892]",
+  },
+  {
+    icon: <Zap size={28} />,
+    title: "Smart Home",
+    desc: "We bring the right people together to challenge established thinking and drive transform in 2020",
+    color: "bg-[#005476]",
+  },
+];
 
 const Services = () => {
-  const services = [
-    {
-      icon: <Camera size={25} />,
-      title: "Security Camera",
-      desc: "We bring the right people together to challenge established thinking and drive transform in 2020",
-    },
-    {
-      icon: <Bell size={25} />,
-      title: "Fire Detection",
-      desc: "We bring the right people together to challenge established thinking and drive transform in 2020",
-    },
-    {
-      icon: <Zap size={25} />,
-      title: "Smart Home",
-      desc: "We bring the right people together to challenge established thinking and drive transform in 2020",
-    },
-  ];
-
-  const buttonStyle = {
-    backgroundColor: "#687892",
-    color: "#FFF",
-    borderRadius: "4px",
-    padding: "0.65rem 2rem",
-    cursor: "pointer",
-  };
-
   return (
-    <section>
+    <section id="services" className="py-16 sm:py-24 scroll-mt-16">
       <Container>
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10 mt-12">
-          <div className="max-w-[500px] leading-none">
-            <h1 className="text-[#002b3d] text-[60px] font-bold">
-              We Provide The Best Services
-            </h1>
-          </div>
-
-          <div>
-            <p className="text-[#7a7777]">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil
-              hic quae illo ratione ab!
-            </p>
-            <button className="flex flex-row gap-1 items-center text-[#002b3d]">
-              Learn More
-              <MoveRight className="pt-1" size={20} color="#002b3d" />
-            </button>
-          </div>
+        {/* Header */}
+        <div className="text-center mb-12 sm:mb-16">
+          <span className="text-[#687892] font-semibold tracking-wider uppercase text-3xl">
+            What We Offer
+          </span>
+          <h1 className="text-[#002b3d] text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-4">
+            We Provide The Best Services
+          </h1>
+          <p className="text-[#7a7777] max-w-[500px] mx-auto">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil
+            hic quae illo ratione ab!
+          </p>
         </div>
 
-        <div className="flex items-center justify-between flex-col md:flex-row text-center my-16 gap-12">
+        {/* Service cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((item, index) => (
-            <div key={index}>
-              <div className="flex justify-center text-[#7a7777]">
+            <div
+              key={index}
+              className="group bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
+            >
+              {/* Decorative corner */}
+              <div className={`absolute -top-10 -right-10 w-28 h-28 ${item.color} opacity-5 rounded-full group-hover:opacity-10 transition-opacity duration-300`} />
+
+              {/* Icon */}
+              <div className={`${item.color} w-14 h-14 rounded-xl flex items-center justify-center text-white mb-5 group-hover:scale-110 transition-transform duration-300`}>
                 {item.icon}
               </div>
-              <h2 className="text-[#002b3d] text-[28px] font-semibold">
+
+              <h2 className="text-[#002b3d] text-xl sm:text-2xl font-bold mb-3">
                 {item.title}
               </h2>
-              <p className="text-[#7a7777] my-3 max-w-[300px]">{item.desc}</p>
-              <button style={buttonStyle}>Learn More</button>
+              <p className="text-[#7a7777] text-sm sm:text-base leading-relaxed mb-6">
+                {item.desc}
+              </p>
+
+              <span className="inline-flex items-center gap-1.5 text-[#002b3d] text-sm font-semibold group-hover:gap-3 transition-all duration-300 cursor-pointer">
+                Learn More
+                <ArrowRight size={16} />
+              </span>
             </div>
           ))}
         </div>

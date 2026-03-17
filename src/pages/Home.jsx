@@ -25,9 +25,9 @@ const Home = () => {
       <CustomerReviews />
       <SecuritySolutions />
       <Blog />
-      <NewsletterForm />
+      {/* <NewsletterForm /> */}
     </div>
-  );
+  ); 
 };
 
 export default Home;
