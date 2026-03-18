@@ -18,7 +18,7 @@ const ContactCTA = () => {
         <div className="flex flex-col lg:flex-row items-center py-16 sm:py-20 lg:py-24 gap-12 lg:gap-20">
           {/* left - content */}
           <div className="flex-1 text-center lg:text-left">
-            <span className="inline-block text-white/80 text-sm font-semibold tracking-wider uppercase mb-3">
+            <span className="inline-block text-white/80 text-2xl font-semibold tracking-wider uppercase mb-3">
               Smart Security
             </span>
             <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-6">

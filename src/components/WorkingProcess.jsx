@@ -30,7 +30,7 @@ const WorkingProcess = () => {
     <section className="py-16 sm:py-20">
       <Container>
         <div className="text-center mb-12 sm:mb-16">
-          <span className="text-[#687892] font-semibold tracking-wider uppercase text-sm">How We Work</span>
+          <span className="text-[#687892] font-semibold tracking-wider uppercase text-2xl">How We Work</span>
           <h1 className="text-[#002b3d] text-3xl sm:text-4xl md:text-5xl font-bold mt-3 mb-4">
             Our Working Process
           </h1>

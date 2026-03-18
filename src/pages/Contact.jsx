@@ -57,7 +57,7 @@ const Contact = () => {
               <input
                 type="button"
                 value="Submit"
-                className="px-10 py-2 rounded-full bg-[#002b3d] text-white cursor-pointer hover:bg-[#687892] transition-colors duration-300"
+                className="px-10 py-2 rounded-full bg-[#002b3d] text-white cursor-pointer hover:bg-[#687892] transition-colors duration-300 mb-3"
               />
             </form>
           </div>
