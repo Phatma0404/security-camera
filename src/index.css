@@ -1,17 +1,14 @@
 @import "tailwindcss";
 
-/* html.light {
-  background-color: #fff;
-  color: #000;
-}
-
-html.dark {
-  background-color: #121212;
-  color: #fff;
-} */
+@custom-variant dark (&:where(.dark, .dark *));
 
 html {
   scroll-behavior: smooth;
+}
+
+html.dark body {
+  background-color: #0f0f0f;
+  color: #e5e5e5;
 }
 
 @keyframes slideDown {
@@ -97,7 +94,11 @@ html {
 }
 
 .logo-partners {
-  animation: logoPartners 20s linear infinite;
+  animation: logoPartners 30s linear infinite;
+}
+
+.logo-partners-reverse {
+  animation: logoPartnersReverse 35s linear infinite;
 }
 
 @keyframes logoPartners {
@@ -105,6 +106,15 @@ html {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes logoPartnersReverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
   }
 }

@@ -2,22 +2,23 @@ import Container from "../components/Container";
 import { MoveRight, Calendar, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { blogData } from "../data/blogData";
+import { useLanguage } from "../context/LanguageContext";
 
 const Blog = () => {
+  const { t } = useLanguage();
   return (
     <section id="blog" className="py-16 sm:py-24 scroll-mt-16">
       <Container>
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <span className="text-[#687892] font-semibold tracking-wider uppercase text-3xl">
-            Our Blog
+          <span className="text-[#687892] dark:text-[#a0aec0] font-semibold tracking-wider uppercase text-3xl">
+            {t("blog.label")}
           </span>
-          <h1 className="text-[#002b3d] text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-4">
-            Blog & Article
+          <h1 className="text-[#002b3d] dark:text-white text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-4">
+            {t("blog.title")}
           </h1>
-          <p className="text-[#7a7777] max-w-[500px] mx-auto">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic nulla
-            sapiente, ratione veniam molestiae enim commodi.
+          <p className="text-[#7a7777] dark:text-gray-400 max-w-[500px] mx-auto">
+            {t("blog.desc")}
           </p>
         </div>
 
@@ -27,7 +28,7 @@ const Blog = () => {
             <Link
               key={index}
               to={`/blog/${item.id}`}
-              className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1"
+              className="group bg-white dark:bg-[#1a1a1a] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-800 transition-all duration-300 hover:-translate-y-1"
             >
               {/* Image */}
               <div className="w-full h-[200px] sm:h-[220px] overflow-hidden">
@@ -40,22 +41,22 @@ const Blog = () => {
 
               {/* Content */}
               <div className="p-5 sm:p-6">
-                <div className="flex items-center gap-2 text-[#687892] text-xs sm:text-sm mb-3">
+                <div className="flex items-center gap-2 text-[#687892] dark:text-[#a0aec0] text-xs sm:text-sm mb-3">
                   <Calendar size={14} />
                   <span>March 2026</span>
                   <span className="w-1 h-1 bg-[#687892] rounded-full"></span>
                   <span>Security</span>
                 </div>
 
-                <h2 className="text-[#002b3d] text-lg sm:text-xl font-bold mb-2 group-hover:text-[#687892] transition-colors duration-300">
+                <h2 className="text-[#002b3d] dark:text-white text-lg sm:text-xl font-bold mb-2 group-hover:text-[#687892] transition-colors duration-300">
                   {item.title}
                 </h2>
-                <p className="text-[#7a7777] text-sm leading-relaxed mb-4">
+                <p className="text-[#7a7777] dark:text-gray-400 text-sm leading-relaxed mb-4">
                   {item.desc}
                 </p>
 
-                <span className="inline-flex items-center gap-1.5 text-[#002b3d] text-sm font-semibold group-hover:gap-3 transition-all duration-300">
-                  Read More
+                <span className="inline-flex items-center gap-1.5 text-[#002b3d] dark:text-white text-sm font-semibold group-hover:gap-3 transition-all duration-300">
+                  {t("blog.readMore")}
                   <ArrowRight size={16} />
                 </span>
               </div>

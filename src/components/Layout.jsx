@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import ScrollToTop from "./ScrollToTop";
 import ScrollToTopButton from "./ScrollToTopButton";
+import CartDrawer from "./CartDrawer";
 
 const Layout = () => {
   return (
@@ -14,6 +15,7 @@ const Layout = () => {
       </main>
       <Footer />
       <ScrollToTopButton />
+      <CartDrawer />
     </>
   );
 };

@@ -1,33 +1,45 @@
 import React from "react";
-import ThemeToggle from "../components/ThemeToggle";
-import Navbar from "../components/Navbar";
 import Hero from "./Hero";
-import About from "./About";
 import Services from "./Services";
 import ContactCTA from "./ContactCTA";
 import WorkingProcess from "../components/WorkingProcess";
 import CustomerReviews from "../components/CustomerReviews";
 import SecuritySolutions from "../components/SecuritySolutions";
 import Blog from "./Blog";
-import NewsletterForm from "../components/NewsletterForm";
-import Footer from "../components/Footer";
-import ScrollToTop from "../components/ScrollToTop";
 import AboutHero from "../components/AboutHero";
+import FAQ from "../components/FAQ";
+import Reveal from "../components/Reveal";
 
 const Home = () => {
   return (
-    <div id="/">
+    <div>
       <Hero />
-      <AboutHero />
-      <Services />
-      <ContactCTA />
-      <WorkingProcess />
-      <CustomerReviews />
-      <SecuritySolutions />
-      <Blog />
-      {/* <NewsletterForm /> */}
+      <Reveal variant="fade-up">
+        <AboutHero />
+      </Reveal>
+      <Reveal variant="fade-up" delay={50}>
+        <Services />
+      </Reveal>
+      <Reveal variant="fade-up">
+        <ContactCTA />
+      </Reveal>
+      <Reveal variant="fade-up">
+        <WorkingProcess />
+      </Reveal>
+      <Reveal variant="fade-up">
+        <CustomerReviews />
+      </Reveal>
+      <Reveal variant="fade-up">
+        <SecuritySolutions />
+      </Reveal>
+      <Reveal variant="fade-up">
+        <Blog />
+      </Reveal>
+      <Reveal variant="fade-up">
+        <FAQ limit={5} />
+      </Reveal>
     </div>
-  ); 
+  );
 };
 
 export default Home;

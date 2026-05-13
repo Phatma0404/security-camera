@@ -1,14 +1,15 @@
 import Container from "./Container";
 import { Play, ShieldCheck, Home, Building2 } from "lucide-react";
 import LearnMore from "./LearnMore";
-
-const features = [
-  { icon: <ShieldCheck size={24} />, text: "Advanced Protection" },
-  { icon: <Home size={24} />, text: "Home Security" },
-  { icon: <Building2 size={24} />, text: "Office Solutions" },
-];
+import { useLanguage } from "../context/LanguageContext";
 
 const SecuritySolutions = () => {
+  const { t } = useLanguage();
+  const features = [
+    { icon: <ShieldCheck size={24} />, text: t("securitySolutions.advancedProtection") },
+    { icon: <Home size={24} />, text: t("securitySolutions.homeSecurity") },
+    { icon: <Building2 size={24} />, text: t("securitySolutions.officeSolutions") },
+  ];
   return (
     <section className="py-16 sm:py-24 securtiy-section relative overflow-hidden">
       {/* Decorative circles */}
@@ -18,15 +19,13 @@ const SecuritySolutions = () => {
       <Container>
         <div className="relative z-10 flex flex-col items-center text-center">
           <span className="text-white/70 font-semibold tracking-wider uppercase text-2xl mb-3">
-            Why Choose Us
+            {t("securitySolutions.label")}
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[60px] text-white max-w-[800px] font-bold leading-[1.1] mb-6">
-            Security Solutions for Your Work and Home
+            {t("securitySolutions.title")}
           </h1>
           <p className="text-white/80 mb-10 max-w-[600px] text-sm sm:text-base">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro
-            quidem ducimus reprehenderit adipisci dolorum, tempore accusamus!
-            Numquam magnam nesciunt officia.
+            {t("securitySolutions.desc")}
           </p>
 
           {/* Feature pills */}
@@ -54,7 +53,7 @@ const SecuritySolutions = () => {
               >
                 <Play size={18} className="text-white ml-0.5" />
               </div>
-              <span className="font-medium text-sm sm:text-base">Watch Video</span>
+              <span className="font-medium text-sm sm:text-base">{t("securitySolutions.watchVideo")}</span>
             </button>
           </div>
         </div>

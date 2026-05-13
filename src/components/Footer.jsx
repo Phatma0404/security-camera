@@ -1,22 +1,8 @@
 import Container from "./Container";
 import { Facebook, Phone, Twitter, Youtube, MapPin, Mail } from "lucide-react";
 import { CiClock2 } from "react-icons/ci";
-import { useLocation, useNavigate } from "react-router-dom";
-
-const navLinks = [
-  { name: "Home", href: "#", isHome: true },
-  { name: "About Us", href: "#aboutUs" },
-  { name: "Services", href: "#services" },
-  { name: "Blog", href: "#blog" },
-  { name: "Contact Us", href: "/contactUs", isRoute: true },
-];
-
-const quickLinks = [
-  { name: "FAQs", href: "#" },
-  { name: "Gallery", href: "#" },
-  { name: "Pricing", href: "#" },
-  { name: "Privacy Policy", href: "#" },
-];
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
 
 const socials = [
   { icon: <Facebook size={18} />, href: "https://www.facebook.com/" },
@@ -27,6 +13,22 @@ const socials = [
 const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { t } = useLanguage();
+
+  const navLinks = [
+    { name: t("nav.home"), href: "#", isHome: true },
+    { name: t("nav.about"), href: "#aboutUs" },
+    { name: t("nav.services"), href: "#services" },
+    { name: t("nav.blog"), href: "#blog" },
+    { name: t("nav.contact"), href: "/contactUs", isRoute: true },
+  ];
+
+  const quickLinks = [
+    { name: t("footer.faqs"), href: "/faq", isRoute: true },
+    { name: t("footer.gallery"), href: "#" },
+    { name: t("footer.pricing"), href: "#" },
+    { name: t("footer.privacy"), href: "#" },
+  ];
 
   const handleNavClick = (e, link) => {
     e.preventDefault();
@@ -60,8 +62,7 @@ const Footer = () => {
             <div>
               <h3 className="text-xl font-bold mb-4">ServiceSecurity</h3>
               <p className="text-white/70 text-sm leading-relaxed mb-6">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam
-                eius luctus, nec ullamcorper mattis, pulvinar dapibus leo.
+                {t("footer.brandDesc")}
               </p>
               <div className="flex gap-3">
                 {socials.map((item, index) => (
@@ -79,7 +80,7 @@ const Footer = () => {
 
             {/* NAVIGATION */}
             <div>
-              <h4 className="font-semibold text-lg mb-5">Navigation</h4>
+              <h4 className="font-semibold text-lg mb-5">{t("footer.navigation")}</h4>
               <ul className="space-y-3 text-sm">
                 {navLinks.map((link) => (
                   <li key={link.name}>
@@ -97,36 +98,45 @@ const Footer = () => {
 
             {/* QUICK LINK */}
             <div>
-              <h4 className="font-semibold text-lg mb-5">Quick Link</h4>
+              <h4 className="font-semibold text-lg mb-5">{t("footer.quickLink")}</h4>
               <ul className="space-y-3 text-sm">
-                {quickLinks.map((link) => (
-                  <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="text-white/70 hover:text-white hover:pl-2 transition-all duration-300 cursor-pointer"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
+                {quickLinks.map((link) =>
+                  link.isRoute ? (
+                    <li key={link.name}>
+                      <Link
+                        to={link.href}
+                        className="text-white/70 hover:text-white hover:pl-2 transition-all duration-300 cursor-pointer inline-block"
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  ) : (
+                    <li key={link.name}>
+                      <a
+                        href={link.href}
+                        className="text-white/70 hover:text-white hover:pl-2 transition-all duration-300 cursor-pointer"
+                      >
+                        {link.name}
+                      </a>
+                    </li>
+                  ),
+                )}
               </ul>
             </div>
 
             {/* CONTACT INFO */}
             <div>
-              <h4 className="font-semibold text-lg mb-5">Contact Info</h4>
+              <h4 className="font-semibold text-lg mb-5">{t("footer.contactInfo")}</h4>
               <div className="space-y-4 text-sm">
                 <div className="flex items-start gap-3">
                   <CiClock2 className="mt-0.5 shrink-0" size={18} />
                   <p className="text-white/70">
-                    <span className="text-white font-medium">7 AM - 5 PM</span>, Mon - Sat
+                    <span className="text-white font-medium">{t("footer.hours")}</span>{t("footer.hoursSuffix")}
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
                   <MapPin className="mt-0.5 shrink-0" size={18} />
-                  <p className="text-white/70">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
+                  <p className="text-white/70">{t("footer.address")}</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <Mail className="mt-0.5 shrink-0" size={18} />
@@ -135,7 +145,7 @@ const Footer = () => {
               </div>
               <button className="flex items-center gap-2 bg-[#002b3d] px-5 py-2.5 rounded-lg text-sm hover:bg-[#001d2a] transition mt-6 cursor-pointer">
                 <Phone size={16} />
-                Call Us
+                {t("footer.callUs")}
               </button>
             </div>
           </div>
@@ -146,7 +156,7 @@ const Footer = () => {
           {/* BOTTOM */}
           <div className="text-center">
             <p className="text-sm text-white/60">
-              © 2026 - Developed by Phatma Kiazumova · All Rights Reserved
+              {t("footer.copyright")}
             </p>
           </div>
         </div>

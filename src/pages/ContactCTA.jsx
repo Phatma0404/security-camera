@@ -1,17 +1,18 @@
 import Container from "../components/Container";
 import LearnMore from "../components/LearnMore";
 import { Phone, Shield, Wifi } from "lucide-react";
-
-const highlights = [
-  { icon: <Phone size={20} />, text: "Remote Monitoring" },
-  { icon: <Shield size={20} />, text: "24/7 Protection" },
-  { icon: <Wifi size={20} />, text: "Smart Alerts" },
-];
+import { useLanguage } from "../context/LanguageContext";
 
 const inputClass =
   "w-full bg-white/10 backdrop-blur-sm text-white py-3 px-4 border border-white/30 placeholder:text-white/70 rounded-lg text-sm focus:outline-none focus:border-white/60 transition-colors";
 
 const ContactCTA = () => {
+  const { t } = useLanguage();
+  const highlights = [
+    { icon: <Phone size={20} />, text: t("contactCta.remoteMonitoring") },
+    { icon: <Shield size={20} />, text: t("contactCta.protection") },
+    { icon: <Wifi size={20} />, text: t("contactCta.smartAlerts") },
+  ];
   return (
     <section className="contactCta-section">
       <Container>
@@ -19,15 +20,13 @@ const ContactCTA = () => {
           {/* left - content */}
           <div className="flex-1 text-center lg:text-left">
             <span className="inline-block text-white/80 text-2xl font-semibold tracking-wider uppercase mb-3">
-              Smart Security
+              {t("contactCta.label")}
             </span>
             <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-6">
-              Monitor the Workplace From your Phone
+              {t("contactCta.title")}
             </h1>
             <p className="text-white/80 mb-8 max-w-[480px] mx-auto lg:mx-0">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi
-              alias, dolore et tempora obcaecati minus commodi. Nobis dolore
-              pariatur modi quibusdam sint.
+              {t("contactCta.desc")}
             </p>
 
             {/* highlights */}
@@ -49,32 +48,32 @@ const ContactCTA = () => {
           <div className="w-full sm:w-auto">
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-white/20">
               <h3 className="text-white text-xl sm:text-2xl font-bold mb-2">
-                Get a Free Quote
+                {t("contactCta.quoteTitle")}
               </h3>
-              <p className="text-white/60 text-sm mb-6">Fill in the details below</p>
+              <p className="text-white/60 text-sm mb-6">{t("contactCta.quoteSubtitle")}</p>
 
               <form className="flex flex-col gap-3 w-full sm:w-72">
                 <input
                   type="email"
-                  placeholder="Email address"
+                  placeholder={t("contactCta.emailPlaceholder")}
                   className={inputClass}
                 />
                 <select className={`${inputClass} cursor-pointer`}>
-                  <option value="" className="bg-[#002b3d] text-white">Select service</option>
-                  <option value="camera" className="bg-[#002b3d] text-white">Security Camera</option>
-                  <option value="fire" className="bg-[#002b3d] text-white">Fire Detection</option>
-                  <option value="smart" className="bg-[#002b3d] text-white">Smart Home</option>
+                  <option value="" className="bg-[#002b3d] text-white">{t("contactCta.selectService")}</option>
+                  <option value="camera" className="bg-[#002b3d] text-white">{t("services.camera")}</option>
+                  <option value="fire" className="bg-[#002b3d] text-white">{t("services.fire")}</option>
+                  <option value="smart" className="bg-[#002b3d] text-white">{t("services.smart")}</option>
                 </select>
                 <textarea
                   className={`${inputClass} resize-none`}
                   rows={4}
-                  placeholder="Your message"
+                  placeholder={t("contactCta.messagePlaceholder")}
                 ></textarea>
                 <button
                   type="submit"
                   className="w-full bg-[#005476] text-white rounded-lg py-3 font-semibold hover:bg-[#003f56] transition cursor-pointer mt-1"
                 >
-                  Submit Request
+                  {t("contactCta.submit")}
                 </button>
               </form>
             </div>

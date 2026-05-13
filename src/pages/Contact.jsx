@@ -1,153 +1,190 @@
-import { MailOpen, MapPin, Smartphone } from "lucide-react";
+import { Mail, MapPin, Phone, Clock, Send, ArrowRight } from "lucide-react";
 import Container from "../components/Container";
+import { useLanguage } from "../context/LanguageContext";
 
 const Contact = () => {
+  const { t } = useLanguage();
+
+  const contactInfo = [
+    {
+      icon: <Phone size={22} />,
+      label: t("contact.phone"),
+      value: "(+994) 99 200 00 00",
+      href: "tel:+994992000000",
+    },
+    {
+      icon: <Mail size={22} />,
+      label: t("contact.email"),
+      value: "info@servicesecurity.com",
+      href: "mailto:info@servicesecurity.com",
+    },
+    {
+      icon: <MapPin size={22} />,
+      label: t("contact.hoursLabel"),
+      value: t("footer.address"),
+    },
+    {
+      icon: <Clock size={22} />,
+      label: t("footer.hours") + t("footer.hoursSuffix"),
+      value: t("contact.contactDesc"),
+    },
+  ];
+
   return (
-    <section className="mb-3">
-      {" "}
-      <div className="bg-[#002b3d] text-white p-6 rounded-lg">
-        <h1 className="text-[56px] text-white font-extrabold leading-[3] tracking-wider text-center">
-          Contact Us
-        </h1>
-        <p className="text-center text-white/70 max-w-[600px] place-self-center mb-6">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident
-          natus aspernatur nesciunt! Modi id, aspernatur quibusdam corporis qui
-          officiis dolore.
-        </p>
+    <section className="pb-16 sm:pb-24">
+      {/* Hero */}
+      <div className="bg-gradient-to-br from-[#002b3d] via-[#003f56] to-[#002b3d] dark:from-[#0a0a0a] dark:via-[#1a1a1a] dark:to-[#0a0a0a] text-white py-16 sm:py-20 mb-12 sm:mb-16 relative overflow-hidden">
+        <div className="absolute -top-20 -right-20 w-72 h-72 bg-[#687892]/20 rounded-full blur-3xl" />
+        <div className="absolute -bottom-32 -left-20 w-96 h-96 bg-[#687892]/10 rounded-full blur-3xl" />
+        <Container>
+          <div className="relative z-10 text-center max-w-2xl mx-auto">
+            <span className="inline-block text-white/70 font-semibold tracking-widest uppercase text-sm mb-3">
+              {t("nav.contact")}
+            </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-5 leading-tight">
+              {t("contact.title")}
+            </h1>
+            <p className="text-white/70 text-base sm:text-lg">
+              {t("contact.desc")}
+            </p>
+          </div>
+        </Container>
       </div>
+
       <Container>
-        {/* second */}
-        <div className="flex flex-col md:flex-row lg:flex- justify-between mt-6 mt-20">
-          <div className="flex-[2]">
-            <form className="max-w-[600px]">
-              <div className="flex gap-4">
+        {/* Form + Info */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 mb-16">
+          {/* Form */}
+          <div className="lg:col-span-3 bg-white dark:bg-[#1a1a1a] rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 p-6 sm:p-8 lg:p-10">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#002b3d] dark:text-white mb-2">
+              {t("contactCta.quoteTitle")}
+            </h2>
+            <p className="text-[#7a7777] dark:text-gray-400 mb-8">
+              {t("contactCta.quoteSubtitle")}
+            </p>
+
+            <form className="space-y-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-[#002b3d] dark:text-gray-300 mb-2"
+                  >
+                    {t("contact.name")}
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder={t("contact.name")}
+                    className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-4 py-3 text-sm text-[#002b3d] dark:text-white placeholder:text-gray-400 focus:outline-none focus:border-[#687892] focus:ring-2 focus:ring-[#687892]/20 transition-colors"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-[#002b3d] dark:text-gray-300 mb-2"
+                  >
+                    {t("contact.email")}
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-4 py-3 text-sm text-[#002b3d] dark:text-white placeholder:text-gray-400 focus:outline-none focus:border-[#687892] focus:ring-2 focus:ring-[#687892]/20 transition-colors"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-[#002b3d] dark:text-gray-300 mb-2"
+                >
+                  {t("contact.phone")}
+                </label>
                 <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Email"
-                  aria-label="Email"
-                  className="w-1/2 bg-gray-100 mb-8 p-2 px-4 rounded-full text-black focus:outline-none focus:ring-2 focus:ring-[#687892]/30"
-                />
-                <input
-                  type="text"
+                  type="tel"
                   id="phone"
                   name="phone"
-                  placeholder="Phone"
-                  aria-label="Phone"
-                  className="w-1/2 bg-gray-100 mb-8 p-2 px-4 rounded-full text-black focus:outline-none focus:ring-2 focus:ring-[#687892]/30"
+                  placeholder="(+994) 99 200 00 00"
+                  className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-4 py-3 text-sm text-[#002b3d] dark:text-white placeholder:text-gray-400 focus:outline-none focus:border-[#687892] focus:ring-2 focus:ring-[#687892]/20 transition-colors"
                 />
               </div>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Name"
-                aria-label="Name"
-                className="w-full bg-gray-100 mb-8 p-2 px-4 rounded-full text-black focus:outline-none focus:ring-2 focus:ring-[#687892]/30"
-              />
-              <textarea
-                name="message"
-                id="message"
-                placeholder="Message"
-                className="w-full bg-gray-100 mb-8 p-2 px-4 rounded-xl text-black resize-none focus:outline-none focus:ring-2 focus:ring-[#687892]/30"
-                rows="5"
 
-              ></textarea>
-              <input
-                type="button"
-                value="Submit"
-                className="px-10 py-2 rounded-full bg-[#002b3d] text-white cursor-pointer hover:bg-[#687892] transition-colors duration-300 mb-3"
-              />
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-[#002b3d] dark:text-gray-300 mb-2"
+                >
+                  {t("contact.message")}
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder={t("contactCta.messagePlaceholder")}
+                  className="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-4 py-3 text-sm text-[#002b3d] dark:text-white placeholder:text-gray-400 resize-none focus:outline-none focus:border-[#687892] focus:ring-2 focus:ring-[#687892]/20 transition-colors"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                className="inline-flex items-center gap-2 bg-[#002b3d] hover:bg-[#003f56] dark:bg-[#687892] dark:hover:bg-[#7a8aa3] text-white font-semibold px-8 py-3 rounded-lg transition-all hover:gap-3 shadow-sm hover:shadow-md cursor-pointer"
+              >
+                <Send size={16} />
+                {t("contact.submit")}
+              </button>
             </form>
           </div>
 
-          {/* second second */}
-
-          <div className="relative flex-1 rounded-3xl overflow-hidden">
-            <img
-              src="https://i.pinimg.com/736x/6d/1d/f3/6d1df3c439c6b943e66a614255334540.jpg"
-              alt="call-center"
-              className="h-full object-cover"
-            />
-            <div className="overlay absolute inset-0 bg-[rgba(0,43,61,0.85)]"></div>
-
-            <div className="overlay-content absolute inset-0 flex flex-col px-7 py-15 text-white">
-              <h3 className="font-bold text-xl mb-4">Our Newsletters</h3>
-              <p className="mb-6 text-white/70">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolores, doloremque.
-              </p>
-              <form action="#">
-                <input
-                  type="email"
-                  placeholder="Email"
-                  aria-label="Email"
-                  className="bg-white/10 backdrop-blur-sm mb-4 w-full py-3 px-4 rounded-full text-white placeholder:text-white/60 border border-white/20 focus:outline-none focus:border-white/50"
-                />
-                <input
-                  type="button"
-                  value="Submit Button"
-                  className="w-full bg-[#687892] hover:bg-[#005476] transition-colors duration-300 p-3 rounded-full cursor-pointer text-white"
-                />
-              </form>
-            </div>
+          {/* Contact Info */}
+          <div className="lg:col-span-2 space-y-4">
+            {contactInfo.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white dark:bg-[#1a1a1a] rounded-2xl border border-gray-100 dark:border-gray-800 p-6 hover:shadow-md transition-shadow"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="shrink-0 w-12 h-12 rounded-xl bg-[#002b3d] dark:bg-[#687892] text-white flex items-center justify-center">
+                    {item.icon}
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-[#002b3d] dark:text-white font-semibold mb-1">
+                      {item.label}
+                    </h3>
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        className="text-sm text-[#7a7777] dark:text-gray-400 hover:text-[#687892] transition-colors break-words"
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="text-sm text-[#7a7777] dark:text-gray-400 break-words">
+                        {item.value}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* third */}
-        <div className="flex md:flex-3 lg:flex-row place-self-center flex-col gap-15 mt-20 mb-12">
-          {/* phone */}
-          <div className="bg-[#002b3d] max-w-[380px] p-8 rounded-2xl text-white">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="bg-white/10 p-2.5 rounded-lg">
-                <Smartphone size={20} />
-              </div>
-              <span className="font-bold text-lg">(+994) 99 200 00 00</span>
-            </div>
-
-            <p className="text-white/70 pb-4">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
-              quis dolores!
-            </p>
-          </div>
-          {/* email */}
-          <div className="bg-[#687892] max-w-[380px] p-8 rounded-2xl text-white">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="bg-white/10 p-2.5 rounded-lg">
-                <MailOpen size={20} />
-              </div>
-              <span className="font-bold text-lg">security@example.com</span>
-            </div>
-            <p className="text-white/70 pb-4">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
-              quis dolores!
-            </p>
-          </div>
-          {/* location */}
-          <div className="bg-white max-w-[380px] p-8 rounded-2xl border border-gray-100 shadow-md">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="bg-[#002b3d] text-white p-2.5 rounded-lg">
-                <MapPin size={20} />
-              </div>
-              <span className="font-bold text-lg text-[#002b3d]">Baku, Azerbaijan</span>
-            </div>
-
-            <p className="text-[#7a7777] pb-4">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
-              quis dolores!
-            </p>
-          </div>
+        {/* Map */}
+        <div className="rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm">
+          <iframe
+            title="Office location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d97236.44637536081!2d49.772559262375786!3d40.394693997423566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d6bd6211cf9%3A0x343f6b5e7ae56c6b!2sBaku!5e0!3m2!1sen!2saz!4v1771362737494!5m2!1sen!2saz"
+            height="420"
+            className="border-0 w-full"
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
-
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d97236.44637536081!2d49.772559262375786!3d40.394693997423566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d6bd6211cf9%3A0x343f6b5e7ae56c6b!2sBaku!5e0!3m2!1sen!2saz!4v1771362737494!5m2!1sen!2saz"
-          height="450"
-          className="border-0 w-full rounded-2xl mb-16"
-          allowFullScreen=""
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
       </Container>
     </section>
   );

@@ -1,19 +1,15 @@
-import Container from "../components/Container";
-
-import LearnMore from "../components/LearnMore";
-import { ThumbsUp } from "lucide-react";
-import { FaRegFileAlt } from "react-icons/fa";
-import { MdOutlineSupportAgent } from "react-icons/md";
-import OurPartners from "../components/OurPartners";
+import AboutHero from "../components/AboutHero";
+import WorkingProcess from "../components/WorkingProcess";
+import Reveal from "../components/Reveal";
 
 const About = () => {
-
   return (
-    <section className="bg-gray-150 mt-40">
-      <Container>
-  
-      </Container>
-    </section>
+    <div>
+      <AboutHero />
+      <Reveal variant="fade-up">
+        <WorkingProcess />
+      </Reveal>
+    </div>
   );
 };
 
